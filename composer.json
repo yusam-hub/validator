@@ -1,6 +1,6 @@
 {
-    "name": "yusam-hub/redis-ext",
-    "description": "yusam-hub/redis-ext",
+    "name": "yusam-hub/validator",
+    "description": "yusam-hub/validator",
     "type": "package",
     "minimum-stability": "stable",
     "require": {
