@@ -34,6 +34,11 @@ trait ValidatorRulesTrait
         return strlen($v) >= intval($extra);
     }
 
+    protected function ruleSize($v, $extra): bool
+    {
+        return strlen($v) === intval($extra);
+    }
+
     protected function ruleEmail($v, $extra): bool
     {
         return filter_var($v, FILTER_VALIDATE_EMAIL);

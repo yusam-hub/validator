@@ -15,6 +15,7 @@ class Validator
 
     /**
      * @throws ValidatorException
+     * @throws \Exception
      */
     public function validate(): bool
     {
@@ -28,7 +29,7 @@ class Validator
             }
 
             if (!is_array($this->rules[$k])) {
-                throw new ValidatorException(sprintf("Rule for [%s] key must be array", $k));
+                throw new \Exception(sprintf("Rule for [ %s ] key must be array", $k));
             }
 
             foreach($this->rules[$k] as $rule) {
@@ -43,7 +44,7 @@ class Validator
                     if (method_exists($this, $methodName)) {
                         $result = call_user_func_array([$this, $methodName], [$v, $ruleV]);
                     } else {
-                        throw new ValidatorException(sprintf("Rule not found [%s]", $rule));
+                        throw new \Exception(sprintf("Rule not found [ %s ]", $rule));
                     }
                 }
 
