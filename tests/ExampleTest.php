@@ -3,15 +3,19 @@
 namespace YusamHub\Validator\Tests;
 
 use YusamHub\Validator\Validator;
+use YusamHub\Validator\ValidatorException;
 
 class ExampleTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @throws ValidatorException
+     */
     public function testDefault()
     {
         $validator = new Validator();
         $validator->setAttributes([
             'id' => 2,
-            'email' => 'test@test.ru',
+            'email' => '',
             'float' => '0.1',
             'title' => '12',
         ]);

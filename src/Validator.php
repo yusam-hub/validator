@@ -13,6 +13,9 @@ class Validator
     protected array $errors = [];
     protected array $ruleMessages = [];
 
+    /**
+     * @throws ValidatorException
+     */
     public function validate(): bool
     {
         $this->errors = [];
