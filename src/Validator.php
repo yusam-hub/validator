@@ -21,7 +21,7 @@ class Validator
             if (!isset($this->rules[$k])) continue;
 
             if (!is_array($this->rules[$k])) {
-                throw new \RuntimeException(sprintf("Rule for [%s] key must be array", $k));
+                throw new ValidatorException(sprintf("Rule for [%s] key must be array", $k));
             }
 
             foreach($this->rules[$k] as $rule) {
@@ -36,7 +36,7 @@ class Validator
                     if (method_exists($this, $methodName)) {
                         $result = call_user_func_array([$this, $methodName], [$v, $ruleV]);
                     } else {
-                        throw new \RuntimeException(sprintf("Rule not found [%s]", $rule));
+                        throw new ValidatorException(sprintf("Rule not found [%s]", $rule));
                     }
                 }
 
@@ -48,6 +48,18 @@ class Validator
         }
 
         return count($this->errors) === 0;
+    }
+
+    /**
+     * @return void
+     * @throws ValidatorException
+     */
+    public function validateOrFail(): void
+    {
+        $validate = $this->validate();
+        if (!$validate) {
+            throw new ValidatorException("Validate errors", $this->getErrors());
+        }
     }
 
     /**
