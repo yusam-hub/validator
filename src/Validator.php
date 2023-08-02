@@ -86,6 +86,25 @@ class Validator
     }
 
     /**
+     * @param string $name
+     * @return mixed|null
+     */
+    public function getAttribute(string $name)
+    {
+        return $this->attributes[$name]??null;
+    }
+
+    /**
+     * @param string $name
+     * @param $value
+     * @return void
+     */
+    public function setAttribute(string $name, $value)
+    {
+        $this->attributes[$name] = $value;
+    }
+
+    /**
      * @return array
      */
     public function getRules(): array
@@ -102,6 +121,25 @@ class Validator
     }
 
     /**
+     * @param string $name
+     * @return mixed|null
+     */
+    public function getRule(string $name)
+    {
+        return $this->rules[$name]??null;
+    }
+
+    /**
+     * @param string $name
+     * @param $value
+     * @return void
+     */
+    public function setRule(string $name, $value)
+    {
+        $this->rules[$name] = $value;
+    }
+
+    /**
      * @return array
      */
     public function getRuleMessages(): array
@@ -115,6 +153,25 @@ class Validator
     public function setRuleMessages(array $ruleMessages): void
     {
         $this->ruleMessages = $ruleMessages;
+    }
+
+    /**
+     * @param string $name
+     * @return mixed|null
+     */
+    public function getRuleMessage(string $name)
+    {
+        return $this->ruleMessages[$name]??null;
+    }
+
+    /**
+     * @param string $name
+     * @param $value
+     * @return void
+     */
+    public function setRuleMessage(string $name, $value)
+    {
+        $this->ruleMessages[$name] = $value;
     }
 
     /**
