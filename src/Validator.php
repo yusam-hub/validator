@@ -19,9 +19,13 @@ class Validator
     public function validate(): bool
     {
         $this->errors = [];
-        foreach($this->attributes as $k => $v) {
+        $ruleKeys = array_keys($this->rules);
+        foreach($ruleKeys as $k) {
 
-            if (!isset($this->rules[$k])) continue;
+            $v = null;
+            if (isset($this->attributes[$k])) {
+                $v = $this->attributes[$k];
+            }
 
             if (!is_array($this->rules[$k])) {
                 throw new ValidatorException(sprintf("Rule for [%s] key must be array", $k));

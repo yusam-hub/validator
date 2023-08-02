@@ -15,8 +15,8 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
         $validator = new Validator();
         $validator->setAttributes([
             'id' => 2,
-            'email' => '',
-            'float' => '0.1',
+            'email' => 'example@domain.zone',
+            'float' => 0.1,
             'title' => '12',
         ]);
         $validator->setRules([
