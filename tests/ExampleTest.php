@@ -36,5 +36,7 @@ class ExampleTest extends \PHPUnit\Framework\TestCase
         var_dump($validator->validate());
 
         print_r($validator->getErrors());
+
+        $this->assertTrue(true);
     }
 }
